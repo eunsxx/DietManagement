@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 목표 설정 제목 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목표 설정"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 목표 설정 입력 -->
+    <EditText
+        android:id="@+id/goat_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="목표 입력 (예: 체중 감량 5kg)"
+        android:inputType="text"/>
+
+    <!-- 목표 설정 버튼 -->
+    <Button
+        android:id="@+id/set_goal_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목표 설정"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 진행 상태 제목 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="진행 상태"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 진행 상태 정보 -->
+    <TextView
+        android:id="@+id/progress_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="진행 상태 정보가 여기 표시됩니다."
+        android:padding="16dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 추가적인 정보 표시나 기능을 여기에 추가할 수 있습니다 -->
+
+</LinearLayout>
