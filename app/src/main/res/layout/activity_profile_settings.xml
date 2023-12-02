@@ -135,7 +135,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
         android:text="변경 사항 저장"
-        android:background="#FF6200EE"
+        android:background="#673AB7"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp"/>
 </RelativeLayout>
