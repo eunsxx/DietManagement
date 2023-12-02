@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="16dp"> <!-- 배경색 추가 -->
+
+            <!-- 개인 정보 입력 섹션 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="개인 정보"
+                android:textColor="#000000"
+                android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
+
+            <!-- 체중 입력 -->
+            <EditText
+                android:id="@+id/weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="체중 (kg)"
+                android:inputType="numberDecimal" /> <!-- 마진 추가 -->
+
+            <!-- 키 입력 -->
+            <EditText
+                android:id="@+id/height_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="키 (cm)"
+                android:inputType="numberDecimal" /> <!-- 마진 변경 -->
+
+            <!-- 성별 선택 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="5dp"
+                android:text="성별"
+                android:textColor="#000000"
+                android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
+
+            <RadioGroup
+                android:id="@+id/gender_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/gender_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="남성" />
+
+                <RadioButton
+                    android:id="@+id/gender_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="여성" />
+            </RadioGroup>
+
+            <!-- 활동 수준 선택 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="5dp"
+                android:text="활동 수준 선택"
+                android:textColor="#000000"
+                android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
+
+            <!-- 설정 옵션 섹션 -->
+            <Spinner
+                android:id="@+id/activity_level_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="앱 설정"
+                android:textColor="#000000"
+                android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
+
+            <!-- 알림 설정 -->
+            <Switch
+                android:id="@+id/switch_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:checked="true"
+                android:text="알림 설정" /> <!-- 마진 추가 -->
+
+            <!-- 테마 변경 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="테마"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/spinner_theme_selection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/save_settings_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:text="변경 사항 저장"
+        android:background="#FF6200EE"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"/>
+</RelativeLayout>
+
+
