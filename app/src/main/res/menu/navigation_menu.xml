@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 대시보드 메뉴 아이템 -->
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/title_dashboard" />
+
+    <!-- 음식 기록 메뉴 아이템 -->
+    <item
+        android:id="@+id/navigation_food_log"
+        android:icon="@drawable/ic_food_log"
+        android:title="@string/title_food_log" />
+
+    <!-- 목표 설정 메뉴 아이템 -->
+    <item
+        android:id="@+id/navigation_goal"
+        android:icon="@drawable/ic_goal"
+        android:title="@string/title_goal" />
+
+    <!-- 프로필 및 설정 메뉴 아이템 -->
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/title_profile" />
+</menu>
