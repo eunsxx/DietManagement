@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 음식 검색 -->
+    <EditText
+        android:id="@+id/food_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="음식 검색"
+        android:inputType="text" />
+
+    <!-- 섭취량 입력 -->
+    <EditText
+        android:id="@+id/food_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="섭취량 (예: 100g)"
+        android:inputType="number" />
+
+    <!-- 섭취 시간 선택 -->
+    <Button
+        android:id="@+id/select_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="섭취 시간 선택" />
+
+    <!-- 선택된 음식의 칼로리와 영양 정보 -->
+    <TextView
+        android:id="@+id/food_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="음식 정보가 여기 표시됩니다."
+        android:padding="16dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 추가 버튼 -->
+    <Button
+        android:id="@+id/add_food_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="음식 추가"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
