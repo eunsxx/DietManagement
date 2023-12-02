@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 음식의 칼로리 및 영양 정보 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="음식의 칼로리 및 영양 정보"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 섭취한 음식의 상세 정보 -->
+    <TextView
+        android:id="@+id/nutrition_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="상세 정보가 여기 표시됩니다."
+        android:padding="16dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 영양소 분포 차트 (여기서는 텍스트뷰로 대체) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="영양소 분포 차트"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 차트 표시 영역 -->
+    <!-- 실제 앱에서는 이 부분에 그래프나 차트를 표시하는 라이브러리를 사용합니다 -->
+    <FrameLayout
+        android:id="@+id/chart_container"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#F0F0F0"/>
+
+</LinearLayout>
