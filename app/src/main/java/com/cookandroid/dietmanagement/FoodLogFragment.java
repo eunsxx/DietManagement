@@ -32,27 +32,44 @@ public class FoodLogFragment extends Fragment {
         CsvReader csvReader = new CsvReader();
         foodItemList = csvReader.readCsvFromAssets(getContext(), "foodCalorieInfo.csv"); // CSV 파일 이름을 넣으세요
 
-        EditText foodSearchEditText = view.findViewById(R.id.food_search);
-        TextView foodInfoTextView = view.findViewById(R.id.food_info);
-        Button addFoodButton = view.findViewById(R.id.add_food_button);
-        addFoodButton.setOnClickListener(new View.OnClickListener() {
+        // 로그를 출력하여 데이터가 제대로 로드되었는지 확인
+        Log.d("FoodLogFragment", "Loaded " + foodItemList.size() + " food items from CSV.");
+
+        Button showFoodListButton = view.findViewById(R.id.show_food_list_button);
+        showFoodListButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String searchQuery = foodSearchEditText.getText().toString().trim();
-                Log.d("Check", searchQuery);
-                for (CsvReader.FoodItem item : foodItemList) {
-                    if (item.getName().equalsIgnoreCase(searchQuery)) {
-                        Log.d("Check", "찾음");
-                        // UI에 음식 정보 표시
-                        String foodInfo = "Name: " + item.getName() + ", Calories: " + item.getCalories();
-                        Log.d("Check", foodInfo);
-                        foodInfoTextView.setText(foodInfo);
-                        break; // 일치하는 첫 번째 항목을 찾으면 반복 종료
-                    }
-                }
-                Log.d("Check", "찾을 수 없음");
+            public void onClick(View v) {
+                // FoodListFragment로 화면 전환
+                FoodListFragment foodListFragment = new FoodListFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, foodListFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
+
+        if (getArguments() != null) {
+            String foodName = getArguments().getString("foodName");
+            String calories = getArguments().getString("calories");
+            String carbohydrates = getArguments().getString("carbohydrates");
+            String protein = getArguments().getString("protein");
+            String fat = getArguments().getString("fat");
+            String cholesterol = getArguments().getString("cholesterol");
+            String dietaryFier = getArguments().getString("dietaryFiber");
+            String sodium = getArguments().getString("sodium");
+
+            // TextView에 음식 정보를 표시합니다.
+            TextView foodInfoTextView = view.findViewById(R.id.food_info);
+            String foodInfo = "음식명: " + foodName + "\n칼로리: " + calories + " kcal" +
+                    ", 탄수화물: " + carbohydrates + " g" +
+                    ", 단백질: " + protein + " g" +
+                    ", 지방: " + fat + " g" +
+                    ", 콜레스테롤: " + cholesterol + " g" +
+                    ", 식이섬유: " + dietaryFier + " g" +
+                    ", 나트륨: " + sodium + " g";
+
+            foodInfoTextView.setText(foodInfo);
+        }
 
         // Inflate the layout for this fragment
         return view;

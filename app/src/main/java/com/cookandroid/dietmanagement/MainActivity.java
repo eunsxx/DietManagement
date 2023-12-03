@@ -1,6 +1,7 @@
 package com.cookandroid.dietmanagement;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import com.cookandroid.dietmanagement.FoodLogFragment;
 import com.cookandroid.dietmanagement.ProfileFragment;
 import com.cookandroid.dietmanagement.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,4 +55,28 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+    public void showFoodDetails(CsvReader.FoodItem foodItem) {
+        FoodLogFragment foodLogFragment = new FoodLogFragment();
+
+        // Bundle을 사용하여 선택된 음식 정보를 전달합니다.
+        Bundle args = new Bundle();
+        args.putString("foodName", foodItem.getName());
+        args.putString("calories", foodItem.getCalories());
+        args.putString("carbohydrates", foodItem.getCarbohydrates());
+        args.putString("protein", foodItem.getProtein());
+        args.putString("fat", foodItem.getFat());
+        args.putString("cholesterol", foodItem.getCholesterol());
+        args.putString("dietaryFiber", foodItem.getDietaryFiber());
+        args.putString("sodium", foodItem.getSodium());
+
+        foodLogFragment.setArguments(args);
+
+        // Fragment 트랜잭션을 사용하여 FoodLogFragment를 표시합니다.
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, foodLogFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
 }

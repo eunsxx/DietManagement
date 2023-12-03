@@ -2,6 +2,7 @@ package com.cookandroid.dietmanagement;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +49,8 @@ public class CsvReader {
             e.printStackTrace();
         }
 
+        Log.d("CsvReader", "Loaded " + foodItems.size() + " food items.");
+
         return foodItems;
     }
 
@@ -82,6 +85,34 @@ public class CsvReader {
 
         public String getCalories() {
             return calories;
+        }
+
+        public String getCarbohydrates() {
+            return carbohydrates;
+        }
+
+        public String getProtein() {
+            return protein;
+        }
+
+        public String getFat() {
+            return fat;
+        }
+
+        public String getCholesterol() {
+            return cholesterol;
+        }
+
+        public String getDietaryFiber() {
+            return dietaryFiber;
+        }
+
+        public String getSodium() {
+            return sodium;
+        }
+
+        public String getRegistrationDate() {
+            return registrationDate;
         }
 
     }

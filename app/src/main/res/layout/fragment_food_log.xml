@@ -6,27 +6,18 @@
     android:padding="16dp">
 
     <!-- 음식 검색 -->
-    <EditText
-        android:id="@+id/food_search"
+    <Button
+        android:id="@+id/show_food_list_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="음식 검색"
-        android:inputType="text" />
-
-    <!-- 섭취량 입력 -->
-    <EditText
-        android:id="@+id/food_quantity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="섭취량 (예: 100g)"
-        android:inputType="number" />
+        android:text="음식 검색" />
 
     <!-- 섭취 시간 선택 -->
     <Button
         android:id="@+id/select_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="시간 등록" />
+        android:text="날짜 / 시간 등록" />
 
     <!-- 선택된 음식의 칼로리와 영양 정보 -->
     <TextView
