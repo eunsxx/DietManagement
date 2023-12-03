@@ -26,7 +26,7 @@
         android:id="@+id/select_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="섭취 시간 선택" />
+        android:text="시간 등록" />
 
     <!-- 선택된 음식의 칼로리와 영양 정보 -->
     <TextView
