@@ -1,5 +1,6 @@
 package com.cookandroid.dietmanagement;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -83,14 +84,6 @@ public class FoodLogFragment extends Fragment {
             }
         });
 
-//        Button addFoodButton = view.findViewById(R.id.add_food_button);
-//        addFoodButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                addAllSelectedFoodsToView();
-//            }
-//        });
-
         if (getArguments() != null) {
             String foodName = getArguments().getString("foodName");
             String calories = getArguments().getString("calories");
@@ -133,13 +126,9 @@ public class FoodLogFragment extends Fragment {
 
     // 선택된 음식 목록을 화면에 업데이트하는 메소드
     private void updateFoodItems(List<CsvReader.FoodItem> foodItems) {
-        selectedFoodsContainer.removeAllViews();
+        selectedFoodsContainer.removeAllViews(); // 모든 뷰를 제거하여 목록을 새로 고칩니다.
         for (CsvReader.FoodItem foodItem : foodItems) {
-            TextView foodInfoView = new TextView(getContext());
-            String foodInfoText = foodItem.getName() + ": " + foodItem.getCalories() + " kcal";
-            foodInfoView.setText(foodInfoText);
-            foodInfoView.setPadding(10, 10, 10, 10);
-            selectedFoodsContainer.addView(foodInfoView);
+            addFoodItemView(foodItem); // 새로운 아이템 뷰를 추가합니다.
         }
     }
 
@@ -149,13 +138,40 @@ public class FoodLogFragment extends Fragment {
     }
 
     private void addFoodItemView(CsvReader.FoodItem foodItem) {
+        Log.d("FoodLog", "addFoodItemView called with item: " + foodItem.getName());
+
+        LinearLayout itemLayout = new LinearLayout(getContext());
+        itemLayout.setOrientation(LinearLayout.HORIZONTAL);
+        itemLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
         TextView foodInfoView = new TextView(getContext());
         String foodInfoText = foodItem.getName() + ": " + foodItem.getCalories() + " kcal";
         foodInfoView.setText(foodInfoText);
-        foodInfoView.setPadding(10, 10, 10, 10);
-        selectedFoodsContainer.addView(foodInfoView);
+        // Set the weight on the TextView so it takes up the extra space
+        foodInfoView.setLayoutParams(new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+
+        Button deleteButton = new Button(getContext());
+        deleteButton.setText("X");
+        // Set the button width to wrap_content to ensure it takes up only the space it needs
+        deleteButton.setLayoutParams(new LinearLayout.LayoutParams(
+                120, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.removeFoodItem(foodItem);
+                selectedFoodsContainer.removeView(itemLayout);
+            }
+        });
+
+        itemLayout.addView(foodInfoView);
+        itemLayout.addView(deleteButton);
+
+        Log.d("FoodLog", "Item layout child count: " + itemLayout.getChildCount());
+        selectedFoodsContainer.addView(itemLayout);
     }
-    // 모든 선택된 음식들을 화면에 추가하는 메소드
 
     // 선택된 음식 아이템을 추가하는 메소드
     void addSelectedFoodItem(CsvReader.FoodItem foodItem) {
