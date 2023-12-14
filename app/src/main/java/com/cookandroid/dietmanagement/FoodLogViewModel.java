@@ -19,9 +19,18 @@ public class FoodLogViewModel extends ViewModel {
     }
 
     public void addFoodItem(CsvReader.FoodItem foodItem) {
+        List<CsvReader.FoodItem> currentItems = selectedFoodItems.getValue();
+        if (currentItems == null) {
+            currentItems = new ArrayList<>();
+        }
+        currentItems.add(foodItem);
+        selectedFoodItems.setValue(currentItems);
+    }
+
+    public void removeFoodItem(CsvReader.FoodItem foodItem) {
         if (selectedFoodItems.getValue() != null) {
             List<CsvReader.FoodItem> items = selectedFoodItems.getValue();
-            items.add(foodItem);
+            items.remove(foodItem);
             selectedFoodItems.setValue(items);
         }
     }
