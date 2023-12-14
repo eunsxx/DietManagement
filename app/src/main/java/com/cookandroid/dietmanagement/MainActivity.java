@@ -15,6 +15,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    private FoodLogFragment foodLogFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             };
 
     public void showFoodDetails(CsvReader.FoodItem foodItem) {
-        FoodLogFragment foodLogFragment = new FoodLogFragment();
+        foodLogFragment = getFoodLogFragment();
 
         // Bundle을 사용하여 선택된 음식 정보를 전달합니다.
         Bundle args = new Bundle();
@@ -79,4 +82,14 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    // FoodLogFragment 인스턴스를 반환하는 메소드
+    public FoodLogFragment getFoodLogFragment() {
+        if (foodLogFragment == null) {
+            foodLogFragment = new FoodLogFragment();
+        }
+        return foodLogFragment;
+    }
+
+
 }
+

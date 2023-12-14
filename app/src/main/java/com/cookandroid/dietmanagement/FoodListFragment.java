@@ -22,6 +22,16 @@ public class FoodListFragment extends Fragment {
 
     private FoodItemAdapter.OnFoodItemClickListener onFoodItemClickListener; // 인터페이스 인스턴스
 
+    // 콜백 인터페이스 정의
+    public interface OnFoodItemClickListener {
+        void onFoodItemClick(CsvReader.FoodItem foodItem);
+    }
+
+    // 콜백 인터페이스 설정 메소드
+    // 콜백 인터페이스 설정 메소드
+    public void setOnFoodItemClickListener(FoodItemAdapter.OnFoodItemClickListener listener) {
+        this.onFoodItemClickListener = listener;
+    }
 
     @Nullable
     @Override
@@ -48,7 +58,15 @@ public class FoodListFragment extends Fragment {
             }
         };
 
-        adapter = new FoodItemAdapter(foodItemList, onFoodItemClickListener);
+        adapter = new FoodItemAdapter(foodItemList, new FoodItemAdapter.OnFoodItemClickListener() {
+            @Override
+            public void onFoodItemClick(CsvReader.FoodItem foodItem) {
+                // 여기서 onFoodItemClickListener 콜백을 호출
+                if (onFoodItemClickListener != null) {
+                    onFoodItemClickListener.onFoodItemClick(foodItem);
+                }
+            }
+        });
         recyclerView.setAdapter(adapter);
 
         // 검색 EditText 설정

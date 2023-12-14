@@ -22,6 +22,9 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodIt
 
     }
 
+    public interface OnFoodItemClickListener {
+        void onFoodItemClick(CsvReader.FoodItem foodItem);
+    }
 
     @NonNull
     @Override
@@ -39,10 +42,6 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodIt
     @Override
     public int getItemCount() {
         return foodItemList.size();
-    }
-
-    public interface OnFoodItemClickListener {
-        void onFoodItemClick(CsvReader.FoodItem foodItem);
     }
 
     // ViewHolder에서 클릭 이벤트를 처리합니다.
