@@ -10,7 +10,7 @@
         android:id="@+id/show_food_list_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="음식 검색" />
+        android:text="음식 검색 및 추가" />
 
     <!-- 섭취 시간 선택 -->
     <Button
@@ -28,6 +28,17 @@
         android:padding="16dp"
         android:background="#E0E0E0"
         android:layout_marginTop="16dp"/>
+
+    <!-- 선택된 음식 목록을 표시할 LinearLayout 추가 -->
+    <LinearLayout
+        android:id="@+id/selected_foods_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <!-- 여기에 동적으로 선택된 음식 정보 뷰들이 추가됩니다 -->
+    </LinearLayout>
+
 
     <!-- 추가 버튼 -->
     <Button

@@ -79,41 +79,68 @@ public class CsvReader {
             this.registrationDate = registrationDate;
         }
 
+        public FoodItem() {
+
+        }
+
         public String getName() {
             return name;
         }
-
+        public void setName(String name) {
+            this.name = name;
+        }
         public String getCalories() {
             return calories;
         }
-
+        public void setCalories(String calories) {
+            this.calories = calories;
+        }
         public String getCarbohydrates() {
             return carbohydrates;
+        }
+        public void setCarbohydrates(String carbohydrates) {
+            this.carbohydrates = carbohydrates;
         }
 
         public String getProtein() {
             return protein;
         }
 
+        public void setProtein(String protein) {
+            this.protein = protein;
+        }
+
         public String getFat() {
             return fat;
+        }
+        public void setFat(String fat) {
+            this.fat = fat;
         }
 
         public String getCholesterol() {
             return cholesterol;
         }
+        public void setCholesterol(String cholesterol) {
+            this.cholesterol = cholesterol;
+        }
 
         public String getDietaryFiber() {
             return dietaryFiber;
         }
-
+        public void setDietaryFiber(String dietaryFiber) {
+            this.dietaryFiber = dietaryFiber;
+        }
         public String getSodium() {
             return sodium;
         }
-
+        public void setSodium(String sodium) {
+            this.sodium = sodium;
+        }
         public String getRegistrationDate() {
             return registrationDate;
         }
-
+        public void setRegistrationDate(String registrationDate) {
+            this.registrationDate = registrationDate;
+        }
     }
 }
