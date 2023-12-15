@@ -29,6 +29,7 @@ import retrofit2.Response;
 
 public class FoodLogFragment extends Fragment {
 
+    private TextView totalNutritionInfo;
     private FoodLogViewModel viewModel;
     private LinearLayout selectedFoodsContainer;
     private List<CsvReader.FoodItem> selectedFoodItems; // 선택된 음식 목록
@@ -50,10 +51,19 @@ public class FoodLogFragment extends Fragment {
             }
         });
 
+        // 총 영양소 정보 관찰
+        viewModel.getTotalNutritionInfo().observe(getViewLifecycleOwner(), new Observer<NutritionInfo>() {
+            @Override
+            public void onChanged(NutritionInfo nutritionInfo) {
+                displayTotalNutritionInfo(nutritionInfo);
+            }
+        });
+
         if (selectedFoodItems == null) {
             selectedFoodItems = new ArrayList<>();
         } else {
             for (CsvReader.FoodItem foodItem : selectedFoodItems) {
+                Log.d("FoodLogFragment", "Food item added[1]: " + foodItem.getName());
                 addFoodItemView(foodItem);
             }
         }
@@ -73,7 +83,8 @@ public class FoodLogFragment extends Fragment {
                 foodListFragment.setOnFoodItemClickListener(new FoodItemAdapter.OnFoodItemClickListener() {
                     @Override
                     public void onFoodItemClick(CsvReader.FoodItem foodItem) {
-                        addFoodItem(foodItem);
+                        Log.d("FoodLogFragment", "Food item added[2]: " + foodItem.getName());
+                        viewModel.addFoodItem(foodItem); // ViewModel을 통해 아이템 추가
                     }
                 });
 
@@ -120,8 +131,22 @@ public class FoodLogFragment extends Fragment {
             foodInfoTextView.setText(foodInfo);
         }
 
+        totalNutritionInfo = view.findViewById(R.id.total_nutrition_info);
+
         // Inflate the layout for this fragment
         return view;
+    }
+
+    // 총 영양소 정보를 화면에 표시하는 메소드
+    private void displayTotalNutritionInfo(NutritionInfo nutritionInfo) {
+        String nutritionText = "총 칼로리: " + nutritionInfo.getTotalCalories() + " kcal"
+                + "\n총 탄수화물: " + nutritionInfo.getTotalCarbohydrates() + " g"
+                + "\n총 단백질: " + nutritionInfo.getTotalProtein() + " g"
+                + "\n총 지방: " + nutritionInfo.getTotalFat() + " g"
+                + "\n총 콜레스테롤: " + nutritionInfo.getTotalCholesterol() + " g"
+                + "\n총 식이섬유: " + nutritionInfo.getTotalDietaryFiber() + " g"
+                + "\n총 나트륨: " + nutritionInfo.getTotalSodium() + " g";
+        totalNutritionInfo.setText(nutritionText);
     }
 
     // 선택된 음식 목록을 화면에 업데이트하는 메소드
@@ -134,6 +159,7 @@ public class FoodLogFragment extends Fragment {
 
     // 음식 아이템 추가 메소드 (예: 사용자가 음식을 선택했을 때 호출)
     public void addFoodItem(CsvReader.FoodItem foodItem) {
+        Log.d("FoodLogFragment", "Food item added[3]: " + foodItem.getName());
         viewModel.addFoodItem(foodItem);
     }
 
@@ -176,6 +202,7 @@ public class FoodLogFragment extends Fragment {
     // 선택된 음식 아이템을 추가하는 메소드
     void addSelectedFoodItem(CsvReader.FoodItem foodItem) {
         if (foodItem != null) {
+            Log.d("FoodLogFragment", "Food item added[4]: " + foodItem.getName());
             viewModel.addFoodItem(foodItem);
         }
     }

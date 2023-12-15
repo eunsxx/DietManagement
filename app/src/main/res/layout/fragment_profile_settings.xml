@@ -25,15 +25,6 @@
                 android:textColor="#000000"
                 android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
 
-            <!-- 체중 입력 -->
-            <EditText
-                android:id="@+id/weight_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:hint="체중 (kg)"
-                android:inputType="numberDecimal" /> <!-- 마진 추가 -->
-
             <!-- 키 입력 -->
             <EditText
                 android:id="@+id/height_input"
@@ -42,6 +33,15 @@
                 android:layout_marginBottom="16dp"
                 android:hint="키 (cm)"
                 android:inputType="numberDecimal" /> <!-- 마진 변경 -->
+
+            <!-- 체중 입력 -->
+            <EditText
+                android:id="@+id/weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="체중 (kg)"
+                android:inputType="numberDecimal" /> <!-- 마진 추가 -->
 
             <!-- 성별 선택 -->
             <TextView
@@ -74,22 +74,31 @@
                     android:text="여성" />
             </RadioGroup>
 
-            <!-- 활동 수준 선택 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="5dp"
-                android:text="활동 수준 선택"
+                android:text="BMI 계산"
                 android:textColor="#000000"
                 android:textSize="18sp" /> <!-- 텍스트 색상 변경 -->
+            <TextView
 
-            <!-- 설정 옵션 섹션 -->
-            <Spinner
-                android:id="@+id/activity_level_spinner"
+                android:id="@+id/bmi_result_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/bmi_category_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp"
+                android:textColor="#000000" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,21 +117,6 @@
                 android:layout_marginBottom="8dp"
                 android:checked="true"
                 android:text="알림 설정" /> <!-- 마진 추가 -->
-
-            <!-- 테마 변경 -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="테마"
-                android:textColor="#000000" />
-
-            <Spinner
-                android:id="@+id/spinner_theme_selection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
 
         </LinearLayout>
     </ScrollView>
