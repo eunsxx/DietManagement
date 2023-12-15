@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,45 +9,135 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="목표 설정"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:text="일주일 루틴 설정"
+        android:textSize="18sp" />
 
     <!-- 목표 설정 입력 -->
     <EditText
-        android:id="@+id/goat_input"
+        android:id="@+id/goal_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="목표 입력 (예: 체중 감량 5kg)"
-        android:inputType="text"/>
+        android:hint="목표 입력 (예: 매일 유산소 30분)"
+        android:inputType="text" />
 
     <!-- 목표 설정 버튼 -->
     <Button
         android:id="@+id/set_goal_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="목표 설정"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="목표 설정" />
+
+    <LinearLayout
+        android:id="@+id/week_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <!-- 예시로 월요일 버튼 추가 -->
+        <Button
+            android:id="@+id/monday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:textSize="10dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/tuesday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/wednesday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/thursday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/friday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/saturday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <Button
+            android:id="@+id/sunday_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_circle_button" />
+
+        <!-- 나머지 요일 버튼도 비슷한 방식으로 추가 -->
+
+    </LinearLayout>
 
     <!-- 진행 상태 제목 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="진행 상태"
-        android:textSize="18sp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:text="진행 상태"
+        android:textSize="18sp" />
 
-    <!-- 진행 상태 정보 -->
-    <TextView
-        android:id="@+id/progress_info"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="진행 상태 정보가 여기 표시됩니다."
-        android:padding="16dp"
         android:background="#E0E0E0"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="vertical">
 
-    <!-- 추가적인 정보 표시나 기능을 여기에 추가할 수 있습니다 -->
+        <!-- 진행 상태 정보 -->
+        <TextView
+            android:id="@+id/progress_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="진행 상태 정보가 여기 표시됩니다." />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:text="진행률: 0%" />
+
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

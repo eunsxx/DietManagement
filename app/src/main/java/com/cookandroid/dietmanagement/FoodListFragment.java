@@ -28,7 +28,6 @@ public class FoodListFragment extends Fragment {
     }
 
     // 콜백 인터페이스 설정 메소드
-    // 콜백 인터페이스 설정 메소드
     public void setOnFoodItemClickListener(FoodItemAdapter.OnFoodItemClickListener listener) {
         this.onFoodItemClickListener = listener;
     }
@@ -64,6 +63,8 @@ public class FoodListFragment extends Fragment {
                 // 여기서 onFoodItemClickListener 콜백을 호출
                 if (onFoodItemClickListener != null) {
                     onFoodItemClickListener.onFoodItemClick(foodItem);
+                } else if (getActivity() instanceof MainActivity) {
+                    ((MainActivity)getActivity()).showFoodDetails(foodItem);
                 }
             }
         });
